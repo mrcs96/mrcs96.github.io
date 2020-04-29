@@ -1,0 +1,109 @@
+// COLOR
+//$color-primary: #c69963;
+$color-primary: #B7B17F;
+//$color-primary-dark: #B28451;
+$color-primary-dark: #807b52;
+
+//$color-secondary: #101d2c;
+$color-secondary: #1a1919;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #54483A;
+$color-grey-dark-2: #6D5D4B;
+
+// FONT
+$font-primary: 'Montserrat', sans-serif;
+$font-display: 'Josefin Sans', sans-serif;
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest-2: 118.75em; //1900px
+$bp-largest: 90em; //1440px
+$bp-large-2: 75em; //1200px
+$bp-large: 62.5em; //1000px
+$bp-medium: 50em;  //800px
+$bp-small: 37.5em;  //600px
+$bp-smallest: 31.25em; //500px
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; //Inherit the box-sizing from html
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //10px/16px = 62.5% -> 1rem = 10px
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+
+    @media only screen and (max-width: $bp-large) {
+        font-size: 50%; //1rem = 8px
+    }
+}
+
+body {
+    font-family: $font-primary;
+    color: $color-grey-dark-2;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+::selection {
+    background-color: $color-primary;
+    color: #fff;
+}
+
+//Sempre nomear COLUMNS para facilitar o trabalho
+//max-content - vai ter no máximo o tamanho necessário para mostrar o conteúdo
+//min-content - vai diminuir sempre deixando o tamanho mínimo para mostrar o conteúdo
+//Função minmax - define um valor/tamanho mínimo e máximo que a coluna pode ter
+
+.container {
+    display: grid;
+    grid-template-rows: 6.5rem 90vh 65vw min-content 40vw repeat(2, 60vw) 40vw min-content 40vw repeat(7, min-content);
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+    @media only screen and (min-width: $bp-largest) {
+        grid-template-rows: 6.5rem 90vh 65vw min-content 40vw repeat(2, 60vw) 35vw min-content 40vw repeat(7, min-content);
+        grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    }
+
+    @media only screen and (min-width: $bp-largest-2) {
+        grid-template-rows: 6.5rem 90vh 40vw min-content 25vw repeat(2, 35vw) 25vw min-content 30vw repeat(7, min-content);
+        grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    }
+
+    @media only screen and (max-width: $bp-large-2) {
+        grid-template-rows: 6.5rem 90vh 100vw min-content 60vw repeat(2, 90vw) 55vw min-content 60vw repeat(7, min-content);
+        grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    }
+
+    @media only screen and (max-width: $bp-large) {
+        grid-template-rows: 6.5rem 90vh 65vw min-content 60vw repeat(2, 100vw) 60vw min-content 60vw repeat(7, min-content);
+        grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-rows: 6.5rem calc(100vh - 6.5rem);
+        //posso remover os outros pois o GRID vai coloca-los automaticamente
+        //de acordo com o tamanho do conteúdo e posicionamento
+        //min-content min-content min-content repeat(3, min-content);
+        //usando calc() pra subtrair os 6rem da primeira ROW, pra que o VH fique correto
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

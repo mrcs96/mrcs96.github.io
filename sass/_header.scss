@@ -1,0 +1,196 @@
+.header {
+    //background-color: $color-grey-dark-1;
+    grid-column: full-start / full-end;
+    grid-row: 2 / 3;
+    //background-image: linear-gradient(rgba($color-secondary, .93), rgba($color-secondary, .93)), url(../img/background.jpg);
+    //background-size: cover;
+    //background-position: center;
+    padding: 8rem;
+    padding-top: 4rem;
+
+        background-image: linear-gradient(90deg,
+                                         rgba($color-primary, .9) 0%,
+                                         rgba($color-grey-light-1, .9) 60%,
+                                         transparent 60%),
+                                         url(../img/recepcao2.jpg);
+        background-size: cover;
+        background-position: center;
+        //border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-secondary, .5);
+    
+       @media only screen and (min-width: $bp-largest) {
+            background-image: linear-gradient(90deg,
+                                         rgba($color-primary, .9) 0%,
+                                         rgba($color-grey-light-1, .9) 75%,
+                                         transparent 75%),
+                                         url(../img/recepcao2.jpg);
+        }
+
+        @media only screen and (max-width: $bp-large-2) {
+            background-image: linear-gradient(90deg,
+                                         rgba($color-primary, .9) 0%,
+                                         rgba($color-grey-light-1, .9) 75%,
+                                         transparent 75%),
+                                         url(../img/recepcao2.jpg);
+        }
+
+        @media only screen and (max-width: $bp-large) {
+            background-image: linear-gradient(90deg,
+                                         rgba($color-primary, .9) 0%,
+                                         rgba($color-grey-light-1, .9) 75%,
+                                         transparent 75%),
+                                         url(../img/recepcao2.jpg);
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            background-image: linear-gradient(90deg,
+                                         rgba($color-primary, .9) 0%,
+                                         rgba($color-grey-light-1, .9) 85%,
+                                         transparent 85%),
+                                         url(../img/recepcao2.jpg);
+        }
+    
+        @media only screen and (max-width: $bp-small) {
+            background-image: linear-gradient(to right,
+                                         rgba($color-primary, .9) 0%,
+                                         rgba($color-grey-light-1, .9) 100%),
+                                         url(../img/recepcao2.jpg);
+        }
+
+    display: grid;
+    grid-template-rows: .5fr min-content minmax(6rem, min-content) min-content .3fr;
+    grid-template-columns: minmax(min-content, max-content);
+    grid-row-gap: 1.5rem;
+    justify-content: start;
+
+    @media only screen and (min-width: $bp-largest) {
+        grid-template-rows: .5fr min-content minmax(6rem, min-content) min-content .2fr;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 5rem;
+    }
+
+    .heading-1 {
+
+        @media only screen and (min-width: $bp-largest) {
+            font-size: 7rem;
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            font-size: 4rem;
+        }
+    }
+
+    .heading-3 {
+        align-self: flex-end;
+        font-size: 1.8rem;
+        color: $color-primary-dark;
+
+        @media only screen and (min-width: $bp-largest) {
+            font-size: 2.8rem;
+        }
+    }
+
+    a {
+        width: 38%;
+
+        @media only screen and (max-width: $bp-medium) {
+            width: 42%;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            width: 48%;
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            width: 95%;
+        }
+    }
+
+    &__btn {
+        align-self: start;
+        justify-self: start;
+        background-color: $color-primary-dark;
+        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-primary 50%);
+    }
+
+    &__especialidades-titulo {
+
+        display: grid;
+        grid-template-columns: 1fr max-content 1fr;
+        grid-column-gap: 1.5rem;
+        align-items: center;
+
+        font-size: 1.6rem;
+        color: $color-grey-dark-1;
+
+        @media only screen and (min-width: $bp-largest) {
+            font-size: 2.5rem;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            height: 1px;
+            display: block;
+            background-color: currentColor;
+        }
+    }
+
+    &__especialidades {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-column-gap: 3rem;
+        justify-items: flex-start;
+        align-items: center;
+        backface-visibility: hidden;
+
+        @media only screen and (min-width: $bp-largest) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .cardio {
+            display: none;
+
+            @media only screen and (min-width: $bp-largest) {
+                display: block;
+                justify-self: end;
+            }
+        }
+
+        @media only screen and (max-width: $bp-smallest) {
+            grid-template-columns: minmax(min-content, 1fr);
+            justify-items: center;
+        }
+
+       /* img {
+                max-height: 2.5rem; //pode ter 25px ou menos
+                max-width: 100%; //pode ter 100% ou menos
+                filter: brightness(70%); //100% é DEFAULT, quanto mais diminuir mais escura a imagem fica, acima de 100% fica mais clara
+        } */
+    }
+
+    .heading-5 {
+        transition: transform .3s;
+        backface-visibility: hidden;
+
+        @media only screen and (min-width: $bp-largest) {
+            font-size: 2.8rem;
+        }
+
+        &:hover {
+            transform: translateY(-1rem) scale(1.03);
+            color: $color-primary-dark;
+        }
+
+        &__link {
+            text-decoration: none;
+            color: currentColor;
+        }
+    }
+}

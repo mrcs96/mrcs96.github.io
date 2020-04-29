@@ -1,0 +1,67 @@
+.doutores {
+    background-color: $color-secondary;
+    //grid-row: 5 / 6;
+    grid-column: full-start / full-end;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    grid-row-gap: 2rem;
+
+    box-shadow: 0 1.5rem 4rem rgba($color-secondary, .7);
+
+    backface-visibility: hidden;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+    }
+
+    .heading-4 {
+            //color: $color-grey-light-1;
+            background-color: $color-secondary;
+            text-decoration: none;
+            //text-transform: uppercase;
+            display: inline-block;
+            transition: all .2s;
+            cursor: pointer;
+            backface-visibility: hidden;
+        
+
+        &:hover {
+            color: $color-primary;
+            box-shadow: 0 1rem 2rem rgba($color-primary-dark, .4);
+            transform: rotate(-5deg) scale(1.2);
+        }
+    }
+
+    &__lista {
+        display: grid;
+        grid-template-columns: repeat(3, min-content max-content);
+        grid-column-gap: 2rem;
+        grid-row-gap: 5vh;
+        align-items: center;
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-template-columns: repeat(3, min-content max-content); //posicionando um ao lado do outro
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            grid-template-columns: min-content max-content;
+        }
+    }
+
+    &__img {
+        width: 7rem;
+        border-radius: 50%;
+        display: block;
+    }
+
+    &__especialidade {
+        text-transform: uppercase;
+        color: $color-grey-light-2;
+        margin-top: -3px;
+    }
+}
